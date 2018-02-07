@@ -1,0 +1,75 @@
+:host {
+  display: block;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  margin: 0;
+  background: #ddd;
+}
+
+pre {
+  display: block;
+  margin: 0;
+  border: none;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+pre.hidden {
+  opacity: 0;
+}
+
+pre.visible {
+  opacity: 0.5;
+  animation-name: fadeOut;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+pre.high {
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  background: #fff;
+  padding: 3px;
+}
+
+pre.shadow {
+  box-shadow: -5px 5px 5px #aaa;
+  animation-name: shadowIn;
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  from {
+    box-shadow: none;
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes shadowIn {
+  from {
+    box-shadow: none;
+  }
+
+  to {
+    box-shadow: -5px 5px 5px #aaa;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0.5;
+  }
+}

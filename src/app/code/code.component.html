@@ -1,0 +1,4 @@
+<ng-container *ngIf="lines$ | async as lines">
+    <pre *ngFor="let line of lines;index as index;last as last" [class.hidden]="line.status === 0" [class.visible]="line.status === 1"
+        [class.shadow]="line.status === 2 && (last || lines[index+1] !==2)" [class.high]="line.status === 2">{{ line.codeline }}</pre>
+</ng-container>

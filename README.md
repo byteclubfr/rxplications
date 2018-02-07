@@ -1,27 +1,123 @@
-# Rxplications
+```ts
+// 0. tooling
+import { of } from 'rxjs/observable/of';
+import { Observable } from 'rxjs/Observable';
+import { Observer } from 'rxjs/Observer';
+import { share } from 'rxjs/operators';
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.6.
+function doSomething(value) {
+console.log(value);
+}
 
-## Development server
+function random(x: number): number {
+return Math.floor(Math.random() \* x) + 1;
+}
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+// 0. Introduction
 
-## Code scaffolding
+// 1. Mise en oeuvre basique
+// observer -> observable( ... o.next, o.complete, o.error ) -> unsubscribe function
+// opérateur = composer une fonction qui lie des observers et se passe une donnée jusqu'à votre observer
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+// 2. Exemple "live" avec l'implém basique qui marche
 
-## Build
+// 2.5. Passage à RxJS + 3 séries d'expériences
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+// 3. promise async (à virer)
+const p = Promise.resolve('yeah');
+console.log(1);
+p.then(doSomething);
+console.log(2);
 
-## Running unit tests
+// 4. promise async custom
+const p = new Promise((resolve, reject) => {
+    resolve('yeah');
+});
+console.log(1);
+p.then(doSomething);
+console.log(2);
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+// 5. Observable async ? custom
+const o = new Observable((observer: Observer<string>) => {
+    observer.next('yeah');
+});
+console.log(1);
+o.subscribe(doSomething);
+console.log(2);
 
-## Running end-to-end tests
+// 6. Observable async ? of (merci RxJS)
+const o = of('yeah');
+console.log(1);
+o.subscribe(doSomething);
+console.log(2);
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+// 7. Conséquences
 
-## Further help
+// 8. promise lazy ?
+const p = new Promise((resolve, reject) => {
+    const data = 'yeah';
+    console.log('data production', data);
+    setTimeout(() => {
+            resolve(data);
+        },
+        1000
+    );
+});
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+p.then(doSomething);
+
+// 9. promise lazy ?
+const p = new Promise((resolve, reject) => {
+    const data = 'yeah';
+    console.log('data production', data);
+    setTimeout(() => {
+            resolve(data);
+        },
+        1000
+    );
+});
+
+// 10. observable lazy ?
+const o = new Observable((observer: Observer<string>) => {
+    console.log('data production');
+    setTimeout(observer.next.bind(observer), random(1000), 'yeah');
+});
+
+// 11. observable lazy ?
+const o = new Observable((observer: Observer<string>) => {
+    console.log('data production');
+    setTimeout(observer.next.bind(observer), random(1000), 'yeah');
+});
+o.subscribe(doSomething);
+
+// 12. conséquences
+
+// 13. promise multicast ?
+const p = new Promise((resolve, reject) => {
+    setTimeout(resolve, 1000, random(100));
+});
+
+p.then(doSomething);
+p.then(doSomething);
+
+// 14. observable multicast ?
+const o = new Observable((observer: Observer<string>) => {
+    setTimeout(observer.next.bind(observer), 1000, random(100));
+    // setInterval(observer.next.bind(observer), 1000, random(100));
+});
+o.subscribe(doSomething);
+o.subscribe(doSomething);
+
+// 15. conséquences
+
+// 16. hot vs cold
+
+// 17. share
+const o = new Observable((observer: Observer<string>) => {
+setTimeout(observer.next.bind(observer), random(1000), random(100));
+}).pipe(share());
+o.subscribe(doSomething);
+o.subscribe(doSomething);
+
+// 18. représentation d'un observable
+```
