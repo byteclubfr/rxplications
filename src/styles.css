@@ -23,3 +23,14 @@ body {
   margin: 0 !important;
   padding: 0;
 }
+
+.mainslide {
+  height: 100%;
+  margin: 3em;
+  text-align: center;
+  position: relative;
+}
+
+.mainslide img {
+  display: inline-block;
+}

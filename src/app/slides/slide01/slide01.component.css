@@ -1,9 +1,26 @@
-:host {
-  display: grid;
-  grid-template-columns: calc(50% - 1em) calc(50% - 1em);
-  grid-template-rows: 50% 50%;
-  justify-items: stretch;
-  grid-gap: 1em;
-  margin: 1em;
-  height: 100%;
+.title {
+  margin-top: 5vh;
+}
+
+img.rx {
+  position: absolute;
+  height: 120px;
+  left: calc(50% - 285px);
+  opacity: 0.7;
+}
+
+img.myth {
+  position: absolute;
+  left: calc(50% - 248px);
+}
+
+.authors {
+  height: 200px;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.authors img {
+  max-height: 100%;
 }
