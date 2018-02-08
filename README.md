@@ -110,7 +110,7 @@ import { Observer } from 'rxjs/Observer';
 import { share } from 'rxjs/operators';
 
 function doSomething(value) {
-console.log(value);
+  console.log(value);
 }
 
 function random(x: number): number {

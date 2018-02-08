@@ -22,6 +22,7 @@ body {
   grid-row-end: 3;
   margin: 0 !important;
   padding: 0;
+  position: relative;
 }
 
 .mainslide {
@@ -33,4 +34,46 @@ body {
 
 .mainslide img {
   display: inline-block;
+}
+
+.playground {
+  position: relative;
+  height: 100%;
+}
+
+.message {
+  display: block;
+  position: absolute;
+  opacity: 0;
+  height: 6vw;
+  top: 40%;
+}
+.message.text {
+  background: #4ca64c;
+  border: 2px solid #fff;
+  border-radius: 3vw;
+  color: #fff;
+  font-weight: bold;
+  line-height: 6.5vw;
+  font-size: 2em;
+  text-align: center;
+  width: 6vw;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.message.camembert {
+  background-image: url(/assets/camembert1.png);
+  background-size: cover;
+  width: 11vw;
+}
+
+.start {
+  font-size: 2em !important;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  border: 2px solid #777;
+  background: #ddd;
+  border-radius: 1em;
 }
