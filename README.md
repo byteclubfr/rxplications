@@ -15,21 +15,23 @@ return Math.floor(Math.random() \* x) + 1;
 
 // 0. Introduction
 
-// 1. Mise en oeuvre basique
+// 1. 2. Mise en oeuvre basique (2 slides)
 // observer -> observable( ... o.next, o.complete, o.error ) -> unsubscribe function
 // opérateur = composer une fonction qui lie des observers et se passe une donnée jusqu'à votre observer
 
-// 2. Exemple "live" avec l'implém basique qui marche
+// 3. Exemple "live" avec l'implém basique qui marche
 
-// 2.5. Passage à RxJS + 3 séries d'expériences
+// 4. Passage à RxJS
 
-// 3. promise async (à virer)
+// 5. 3 séries d'expériences
+
+// 6. promise async (à virer)
 const p = Promise.resolve('yeah');
 console.log(1);
 p.then(doSomething);
 console.log(2);
 
-// 4. promise async custom
+// 7. promise async custom
 const p = new Promise((resolve, reject) => {
     resolve('yeah');
 });
@@ -37,7 +39,7 @@ console.log(1);
 p.then(doSomething);
 console.log(2);
 
-// 5. Observable async ? custom
+// 8. Observable async ? custom
 const o = new Observable((observer: Observer<string>) => {
     observer.next('yeah');
 });
@@ -45,15 +47,15 @@ console.log(1);
 o.subscribe(doSomething);
 console.log(2);
 
-// 6. Observable async ? of (merci RxJS)
+// 9. Observable async ? of (merci RxJS)
 const o = of('yeah');
 console.log(1);
 o.subscribe(doSomething);
 console.log(2);
 
-// 7. Conséquences
+// 10. Conséquences
 
-// 8. promise lazy ?
+// 11. promise lazy ?
 const p = new Promise((resolve, reject) => {
     const data = 'yeah';
     console.log('data production', data);
@@ -66,7 +68,7 @@ const p = new Promise((resolve, reject) => {
 
 p.then(doSomething);
 
-// 9. promise lazy ?
+// 12. promise lazy ?
 const p = new Promise((resolve, reject) => {
     const data = 'yeah';
     console.log('data production', data);
@@ -77,22 +79,22 @@ const p = new Promise((resolve, reject) => {
     );
 });
 
-// 10. observable lazy ?
+// 13. observable lazy ?
 const o = new Observable((observer: Observer<string>) => {
     console.log('data production');
     setTimeout(observer.next.bind(observer), random(1000), 'yeah');
 });
 
-// 11. observable lazy ?
+// 14. observable lazy ?
 const o = new Observable((observer: Observer<string>) => {
     console.log('data production');
     setTimeout(observer.next.bind(observer), random(1000), 'yeah');
 });
 o.subscribe(doSomething);
 
-// 12. conséquences
+// 15. conséquences
 
-// 13. promise multicast ?
+// 16. promise multicast ?
 const p = new Promise((resolve, reject) => {
     setTimeout(resolve, 1000, random(100));
 });
@@ -100,7 +102,7 @@ const p = new Promise((resolve, reject) => {
 p.then(doSomething);
 p.then(doSomething);
 
-// 14. observable multicast ?
+// 17. observable multicast ?
 const o = new Observable((observer: Observer<string>) => {
     setTimeout(observer.next.bind(observer), 1000, random(100));
     // setInterval(observer.next.bind(observer), 1000, random(100));
@@ -108,16 +110,16 @@ const o = new Observable((observer: Observer<string>) => {
 o.subscribe(doSomething);
 o.subscribe(doSomething);
 
-// 15. conséquences
+// 18. conséquences
 
-// 16. hot vs cold
+// 19. hot vs cold
 
-// 17. share
+// 20. share
 const o = new Observable((observer: Observer<string>) => {
 setTimeout(observer.next.bind(observer), random(1000), random(100));
 }).pipe(share());
 o.subscribe(doSomething);
 o.subscribe(doSomething);
 
-// 18. représentation d'un observable
+// 21. représentation d'un observable
 ```
