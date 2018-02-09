@@ -16,8 +16,8 @@ export class Slide10Component implements OnInit {
   ngOnInit() {
     this.code.setCode(`
 const p = new Promise((resolve, reject) => {
-  const data = 'pie_chart';
-  message(data + 'build');
+  const data = 'camembert';
+  message(camembert + ' build');
   setTimeout(() => {
     resolve(data);
   }, 2000);
