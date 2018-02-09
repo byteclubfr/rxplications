@@ -69,7 +69,6 @@ o.subscribe(message);
   }
 
   private message(track, s) {
-    console.log(track, s);
     const icon = document.createElement('span');
     icon.classList.add('message', 'text');
     icon.classList.add(s);

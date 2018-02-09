@@ -25,6 +25,7 @@ import { Slide15Component } from './slides/slide15/slide15.component';
 import { Slide16Component } from './slides/slide16/slide16.component';
 import { Slide17Component } from './slides/slide17/slide17.component';
 import { Slide18Component } from './slides/slide18/slide18.component';
+import { Slide00Component } from './slides/slide00/slide00.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { Slide18Component } from './slides/slide18/slide18.component';
     CodeComponent,
     SlideComponent,
     SlideDirective,
+    Slide00Component,
     Slide01Component,
     Slide02Component,
     Slide03Component,
@@ -52,6 +54,7 @@ import { Slide18Component } from './slides/slide18/slide18.component';
     Slide18Component
   ],
   entryComponents: [
+    Slide00Component,
     Slide01Component,
     Slide02Component,
     Slide03Component,

@@ -92,3 +92,9 @@ body {
   background: #ddd;
   border-radius: 1em;
 }
+
+.mainslide pre {
+  text-align: left;
+  background: #333;
+  color: #fff;
+}

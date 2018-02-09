@@ -1,3 +1,20 @@
-<p>
-  slide02 works!
-</p>
+<div class="paper border border-primary mainslide">
+  Mise en oeuvre basique slide 2
+
+  <pre>
+// 1. Observer
+interface BasicObserver {{ '{' }}
+  next: (value: any) => void;
+}
+
+// 2. Observable (non fonctionnel)
+class SimpleObservable {{ '{' }}
+  private onsubscribe: (obs: BasicObserver) => void;
+
+  subscribe(obs: BasicObserver) {{ '{' }}
+    this.onsubscribe(obs);
+  }
+}
+</pre>
+
+</div>

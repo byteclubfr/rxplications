@@ -20,6 +20,7 @@ import { Slide15Component } from './slide15/slide15.component';
 import { Slide16Component } from './slide16/slide16.component';
 import { Slide17Component } from './slide17/slide17.component';
 import { Slide18Component } from './slide18/slide18.component';
+import { Slide00Component } from './slide00/slide00.component';
 
 enum KEY_CODE {
   RIGHT_ARROW = 39,
@@ -28,6 +29,7 @@ enum KEY_CODE {
 }
 
 const slides = [
+  Slide00Component,
   Slide01Component,
   Slide02Component,
   Slide03Component,
@@ -60,12 +62,12 @@ export class SlideComponent implements OnInit {
   keyEvent(event: KeyboardEvent) {
     if (event.keyCode === KEY_CODE.RIGHT_ARROW || event.keyCode === KEY_CODE.SPACE) {
       if (this.slide === slides.length - 1) return;
-      this.router.navigate(['/', (this.slide + 2).toString().padStart(2, '0')]);
+      this.router.navigate(['/', (this.slide + 1).toString().padStart(2, '0')]);
     }
 
     if (event.keyCode === KEY_CODE.LEFT_ARROW) {
       if (this.slide === 0) return;
-      this.router.navigate(['/', this.slide.toString().padStart(2, '0')]);
+      this.router.navigate(['/', (this.slide - 1).toString().padStart(2, '0')]);
     }
   }
 
@@ -77,7 +79,7 @@ export class SlideComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
-      this.slide = parseInt(params.get('id'), 10) - 1;
+      this.slide = parseInt(params.get('id'), 10);
       let componentFactory = this.componentFactoryResolver.resolveComponentFactory(slides[this.slide]);
       let viewContainerRef = this.slideHost.viewContainerRef;
       viewContainerRef.clear();

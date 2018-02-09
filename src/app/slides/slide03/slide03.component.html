@@ -1,3 +1,25 @@
-<p>
-  slide03 works!
-</p>
+<div class="paper border border-primary mainslide">
+  Mise en oeuvre basique slide 2
+
+  <pre>
+// 3. Observable qui émet une valeur aléatoire (0-100) toute les secondes
+class RandomObservable {{ '{' }}
+  private onsubscribe: (obs: BasicObserver) => void;
+  
+  constructor() {{ '{' }}
+    this.onsubscribe = obs => {{ '{' }}
+      setInterval(
+        () => obs.next(Math.floor(Math.random() * 100))
+        , 1000
+      );
+    }
+  }
+
+  subscribe(obs: BasicObserver) {{ '{' }}
+    this.onsubscribe(obs);
+  }
+}
+
+  </pre>
+
+</div>
