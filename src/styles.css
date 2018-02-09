@@ -40,6 +40,12 @@ body {
   position: relative;
   height: 100%;
 }
+.playground0 {
+  height: 50%;
+}
+.playground1 {
+  height: 50%;
+}
 
 .message {
   display: block;
@@ -61,6 +67,10 @@ body {
 }
 .message i {
   font-size: 1.5em !important;
+}
+
+.message.text {
+  line-height: 4.5vw;
 }
 
 .message.pie_chart {
