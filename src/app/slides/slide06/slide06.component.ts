@@ -8,7 +8,6 @@ import { LinesService } from '../../lines.service';
 })
 export class Slide06Component implements OnInit {
   messagecounter = 0;
-  timeline = anime.timeline();
 
   constructor(public code: LinesService) {}
 
@@ -34,14 +33,14 @@ function message(value) {
   start() {
     this.clearMessages();
     const p = new Promise((resolve, reject) => {
-      resolve('camembert');
+      resolve('pie_chart');
     });
 
-    this.message(1);
+    this.message('looks_one');
 
     p.then(this.message.bind(this));
 
-    this.message(2);
+    this.message('looks_two');
   }
 
   private clearMessages() {
@@ -49,30 +48,26 @@ function message(value) {
     this.messagecounter = 0;
   }
 
-  private message(s: any, moredelay = 0) {
+  private message(s: any) {
     const icon = document.createElement('span');
     icon.classList.add('message');
-    if (s === 'camembert') {
-      icon.classList.add('camembert');
-    } else {
-      icon.innerText = s;
-      icon.classList.add('text');
-    }
-
+    icon.classList.add(s);
+    icon.innerHTML = `<i class="material-icons">${s}</i>`;
     document.querySelector('.playground').appendChild(icon);
 
-    this.timeline
+    anime
+      .timeline()
       .add({
         targets: icon,
         opacity: 1,
-        offset: this.messagecounter * 200 + moredelay,
+        offset: this.messagecounter * 200,
         easing: 'linear',
         duration: 100
       })
       .add({
         targets: icon,
-        right: `${this.messagecounter * 200}px`,
-        offset: this.messagecounter * 200 + moredelay,
+        left: `${this.messagecounter * 175}`,
+        offset: this.messagecounter * 200,
         easing: 'linear',
         duration: 1000
       });

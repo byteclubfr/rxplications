@@ -1,0 +1,9 @@
+:host {
+  display: grid;
+  grid-template-columns: calc(50% - 1em) calc(50% - 1em);
+  grid-template-rows: 50% 50%;
+  justify-items: stretch;
+  grid-gap: 1em;
+  margin: 1em;
+  height: 100%;
+}

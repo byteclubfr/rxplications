@@ -45,26 +45,31 @@ body {
   display: block;
   position: absolute;
   opacity: 0;
-  height: 6vw;
+  height: 4vw;
   top: 40%;
-}
-.message.text {
+  right: 0;
   background: #4ca64c;
   border: 2px solid #fff;
-  border-radius: 3vw;
+  border-radius: 4vw;
   color: #fff;
   font-weight: bold;
-  line-height: 6.5vw;
+  line-height: 6vw;
   font-size: 2em;
   text-align: center;
-  width: 6vw;
+  width: 8vw;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
+.message i {
+  font-size: 1.5em !important;
+}
 
-.message.camembert {
+.message.pie_chart {
   background-image: url(/assets/camembert1.png);
   background-size: cover;
-  width: 11vw;
+  background-position-x: 9px;
+}
+.message.pie_chart i {
+  color: transparent;
 }
 
 .start {
