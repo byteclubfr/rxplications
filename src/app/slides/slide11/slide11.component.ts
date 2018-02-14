@@ -11,12 +11,12 @@ import { Observer } from 'rxjs/Observer';
 export class Slide11Component implements OnInit {
   messagecounter = 0;
 
-  constructor(public code: LinesService) {}
+  constructor(public code: LinesService) { }
 
   ngOnInit() {
     this.code.setCode(`
 const p = new Promise((resolve, reject) => {
-  const data = 'camembret';
+  const data = 'camembert';
   message(data + ' build');
   setTimeout(() => {
     resolve(data);
