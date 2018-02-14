@@ -98,3 +98,8 @@ body {
   background: #333;
   color: #fff;
 }
+
+.schema {
+  margin-top: 2rem;
+  border: 0;
+}
