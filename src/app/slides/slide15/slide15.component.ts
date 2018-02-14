@@ -15,7 +15,7 @@ function random(x: number): number {
 export class Slide15Component implements OnInit {
   messagecounter = [0, 0];
 
-  constructor(public code: LinesService) {}
+  constructor(public code: LinesService) { }
 
   ngOnInit() {
     this.code.setCode(`
