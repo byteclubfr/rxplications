@@ -20,6 +20,7 @@ import { Slide15Component } from './slide15/slide15.component';
 import { Slide16Component } from './slide16/slide16.component';
 import { Slide17Component } from './slide17/slide17.component';
 import { Slide18Component } from './slide18/slide18.component';
+import { Slide19Component } from './slide19/slide19.component';
 import { Slide00Component } from './slide00/slide00.component';
 
 enum KEY_CODE {
@@ -47,7 +48,8 @@ const slides = [
   Slide15Component,
   Slide16Component,
   Slide17Component,
-  Slide18Component
+  Slide18Component,
+  Slide19Component,  
 ];
 
 @Component({

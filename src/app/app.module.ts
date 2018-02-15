@@ -25,6 +25,7 @@ import { Slide15Component } from './slides/slide15/slide15.component';
 import { Slide16Component } from './slides/slide16/slide16.component';
 import { Slide17Component } from './slides/slide17/slide17.component';
 import { Slide18Component } from './slides/slide18/slide18.component';
+import { Slide19Component } from './slides/slide19/slide19.component';
 import { Slide00Component } from './slides/slide00/slide00.component';
 
 @NgModule({
@@ -51,7 +52,8 @@ import { Slide00Component } from './slides/slide00/slide00.component';
     Slide15Component,
     Slide16Component,
     Slide17Component,
-    Slide18Component
+    Slide18Component,
+    Slide19Component
   ],
   entryComponents: [
     Slide00Component,
@@ -72,7 +74,8 @@ import { Slide00Component } from './slides/slide00/slide00.component';
     Slide15Component,
     Slide16Component,
     Slide17Component,
-    Slide18Component
+    Slide18Component,
+    Slide19Component
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [LinesService],
